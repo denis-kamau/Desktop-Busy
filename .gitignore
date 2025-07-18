@@ -69,6 +69,7 @@ Desktop.ini
 
 # Ignore logs
 *.log
+main.spec
 
 # Ignore compiled files in src/
 */__pycache__/
