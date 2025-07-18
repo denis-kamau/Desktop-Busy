@@ -6,6 +6,7 @@ Handles mouse simulation for DesktopBusy.
 import threading
 import time
 import pyautogui
+import random
 
 class MouseSimulator:
     """
@@ -40,13 +41,23 @@ class MouseSimulator:
 
     def _run(self):
         """
-        Internal method to move the mouse slightly at intervals.
+        Internal method to move the mouse slightly and scroll at random intervals.
         """
         while self._running:
+            movement_range = [i for i in range(-20, 21) if i != 0]
+            
             x, y = pyautogui.position()
-            pyautogui.moveTo(x+1, y)
-            print(f"Moving mouse to ({x+1}, {y})")
-            time.sleep(0.2)
+            dx = random.choice(movement_range)
+            dy = random.choice(movement_range)
+            
+            pyautogui.moveTo(x + dx, y + dy)
+            print(f"Moving mouse to ({x + dx}, {y + dy})")
+            time.sleep(0.5)
             pyautogui.moveTo(x, y)
             print(f"Moving mouse back to ({x}, {y})")
-            time.sleep(self.interval)
+            scroll_amount = random.choice([-2, -1, 1, 2])
+            pyautogui.scroll(scroll_amount)
+            print(f"Scrolling {'up' if scroll_amount > 0 else 'down'} by {abs(scroll_amount)}")
+            interval = random.randint(45, 75)
+            print(f"Waiting for {interval} seconds before next action.")
+            time.sleep(interval)
