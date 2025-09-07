@@ -1,7 +1,7 @@
 # Desktop Busy
 
 ## Description
-Desktop Busy is a Windows desktop application that mimics user behaviour by simulating mouse movement and scrolling. Its primary purpose is to keep Microsoft Teams (and your PC) active by preventing the system from going idle.
+Desktop Busy is a Windows desktop application that mimics user behaviour by simulating mouse movement and scrolling. Its primary purpose is to keep your PC active by preventing the system from going idle.
 
 ## Features
 - Standalone Windows application
